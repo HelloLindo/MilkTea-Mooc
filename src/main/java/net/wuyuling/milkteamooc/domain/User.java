@@ -1,17 +1,22 @@
 package net.wuyuling.milkteamooc.domain;
 
-public class User {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private int id;
 
     private String username;
-
+    @JsonIgnore
     private String pwd;
 
-    public User(){}
+    public User() {
+    }
 
 
-    public User(int id, String username, String pwd){
+    public User(int id, String username, String pwd) {
         this.id = id;
         this.username = username;
         this.pwd = pwd;

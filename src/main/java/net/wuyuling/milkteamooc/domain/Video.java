@@ -1,8 +1,13 @@
 package net.wuyuling.milkteamooc.domain;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Video {
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+public class Video implements Serializable {
 
     private int id;
 
@@ -12,14 +17,30 @@ public class Video {
 
     private int price;
 
+    @JsonProperty("cover_img")
     private String coverImg;
 
+    /**
+     * Return Date like "2020-08-30 13:54:42"
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "en", timezone = "GMT-4")
     private Date createTime;
 
+    // @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<Chapter> chapterList;
 
-    public Video(){}
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
 
-    public Video(int id, String title){
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
+    public Video() {
+    }
+
+    public Video(int id, String title) {
         this.id = id;
 
         this.title = title;
@@ -84,6 +105,7 @@ public class Video {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createTime=" + createTime +
+                ", chapterList=" + chapterList +
                 '}';
     }
 }

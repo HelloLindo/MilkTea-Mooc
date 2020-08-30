@@ -3,7 +3,9 @@ package net.wuyuling.milkteamooc.mapper;
 import net.wuyuling.milkteamooc.domain.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -31,5 +33,10 @@ public class UserMapper {
         }
 
         return null;
+    }
+
+    // Get User List
+    public List<User> listUser() {
+        return new ArrayList<>(userMap.values());
     }
 }
