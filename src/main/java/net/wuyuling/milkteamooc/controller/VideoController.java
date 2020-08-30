@@ -1,21 +1,26 @@
 package net.wuyuling.milkteamooc.controller;
 
 
+import net.wuyuling.milkteamooc.service.VideoService;
+import net.wuyuling.milkteamooc.utils.JsonData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
+/**
+ * Controller of video service
+ */
 
 @RestController
-@RequestMapping("/api/v1/video")
+@RequestMapping("/api/v1/pub/video")
 public class VideoController {
+
+    @Autowired
+    private VideoService videoService;
+
     @GetMapping("list")
-    public Object getList(){
-        Map<String, String> map = new HashMap<>();
-        map.put("0", "Hello");
-        map.put("1", "World");
-        return map;
+    public Object getList() {
+        return JsonData.buildSuccess(videoService.listVideo());
     }
 }
