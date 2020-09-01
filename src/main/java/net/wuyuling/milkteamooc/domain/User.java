@@ -1,7 +1,5 @@
 package net.wuyuling.milkteamooc.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -9,7 +7,8 @@ public class User implements Serializable {
     private int id;
 
     private String username;
-    @JsonIgnore
+
+    //    @JsonIgnore
     private String pwd;
 
     public User() {

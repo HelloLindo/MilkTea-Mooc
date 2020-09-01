@@ -6,6 +6,7 @@ import net.wuyuling.milkteamooc.mapper.VideoMapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -49,7 +50,7 @@ public class VideoTest {
     public void testVideoTitle() {
         for (Video video : videoList) {
             // Title is NOT empty
-            TestCase.assertTrue(video.getTitle().length() > 0);
+            TestCase.assertTrue(StringUtils.isNotBlank(video.getTitle()));
         }
         System.out.println("Test VideoTitle Done.");
     }
