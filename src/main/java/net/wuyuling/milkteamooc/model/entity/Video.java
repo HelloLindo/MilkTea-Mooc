@@ -1,4 +1,4 @@
-package net.wuyuling.milkteamooc.domain;
+package net.wuyuling.milkteamooc.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +21,7 @@ public class Video implements Serializable {
     private Double point;
 
     private List<Chapter> chapterList;
-    
+
     public List<Chapter> getChapterList() {
         return chapterList;
     }

@@ -1,4 +1,4 @@
-package net.wuyuling.milkteamooc.domain;
+package net.wuyuling.milkteamooc.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;

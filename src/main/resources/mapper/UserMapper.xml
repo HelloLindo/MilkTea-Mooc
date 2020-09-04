@@ -14,4 +14,12 @@
         WHERE phone = #{phone}
     </select>
 
+    <!--  No need to return the correct password  -->
+    <select id="findByPhoneAndPwd" resultType="User">
+        select id, name, head_img, phone, create_time
+        from user
+        where phone = #{phone}
+          and pwd = #{pwd}
+    </select>
+
 </mapper>

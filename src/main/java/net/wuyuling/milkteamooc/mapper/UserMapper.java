@@ -1,6 +1,6 @@
 package net.wuyuling.milkteamooc.mapper;
 
-import net.wuyuling.milkteamooc.domain.User;
+import net.wuyuling.milkteamooc.model.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +16,13 @@ public interface UserMapper {
      * @remark Unused method
      */
     User findByPhone(@Param("phone") String phone);
+
+    /**
+     * Find the User by phone and password
+     *
+     * @param phone Phone Number
+     * @param pwd   Password enter by a user
+     * @return the User in database
+     */
+    User findByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);
 }

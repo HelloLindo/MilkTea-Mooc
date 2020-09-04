@@ -2,6 +2,7 @@ package net.wuyuling.milkteamooc.utils;
 
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 /**
@@ -18,7 +19,7 @@ public class CommonUtils {
     public static String MD5(String data) {
         try {
             java.security.MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] array = md.digest(data.getBytes("UTF_8"));
+            byte[] array = md.digest(data.getBytes(StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
             for (byte item : array) {
                 sb.append(Integer.toHexString((item & 0xFF) | 0x100), 1, 3);

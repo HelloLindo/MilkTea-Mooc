@@ -1,9 +1,10 @@
 package net.wuyuling.milkteamooc.service.impl;
 
-import net.wuyuling.milkteamooc.domain.User;
 import net.wuyuling.milkteamooc.mapper.UserMapper;
+import net.wuyuling.milkteamooc.model.entity.User;
 import net.wuyuling.milkteamooc.service.UserService;
 import net.wuyuling.milkteamooc.utils.CommonUtils;
+import net.wuyuling.milkteamooc.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,18 @@ public class UserServiceImpl implements UserService {
         } else {
             return -1;
         }
+    }
+
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+        User user = userMapper.findByPhoneAndPwd(phone, CommonUtils.MD5(pwd));
+        if (user == null) {
+            return null;
+        } else {
+            // Has a User, Validate Successfully
+            return JWTUtils.generateJsonWebToken(user);
+        }
+
     }
 
     /**

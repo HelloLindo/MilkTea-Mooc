@@ -1,5 +1,6 @@
 package net.wuyuling.milkteamooc.controller;
 
+import net.wuyuling.milkteamooc.model.request.LoginRequest;
 import net.wuyuling.milkteamooc.service.UserService;
 import net.wuyuling.milkteamooc.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,21 @@ public class UserController {
         int rows = userService.save(userInfo);
 
         return rows == 1 ? JsonData.buildSuccess() : JsonData.buildError("Sign up failed, please retry");
+
+    }
+
+    /**
+     * Login Interface
+     *
+     * @param loginRequest Login Request Body
+     * @return Login Status
+     */
+    @PostMapping("login")
+    public JsonData login(@RequestBody LoginRequest loginRequest) {
+
+        String token = userService.findByPhoneAndPwd(loginRequest.getPhone(), loginRequest.getPwd());
+
+        return token == null ? JsonData.buildError("Login Failed, Wrong User Information") : JsonData.buildSuccess(token);
 
     }
 }

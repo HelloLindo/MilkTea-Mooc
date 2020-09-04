@@ -1,7 +1,7 @@
 package net.wuyuling.milkteamooc.mapper;
 
-import net.wuyuling.milkteamooc.domain.Video;
-import net.wuyuling.milkteamooc.domain.VideoBanner;
+import net.wuyuling.milkteamooc.model.entity.Video;
+import net.wuyuling.milkteamooc.model.entity.VideoBanner;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
 package net.wuyuling.milkteamooc;
 
 import junit.framework.TestCase;
-import net.wuyuling.milkteamooc.domain.Video;
 import net.wuyuling.milkteamooc.mapper.VideoMapper;
+import net.wuyuling.milkteamooc.model.entity.Video;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

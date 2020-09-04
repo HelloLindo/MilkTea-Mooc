@@ -1,8 +1,8 @@
 package net.wuyuling.milkteamooc.controller;
 
 
-import net.wuyuling.milkteamooc.domain.Video;
-import net.wuyuling.milkteamooc.domain.VideoBanner;
+import net.wuyuling.milkteamooc.model.entity.Video;
+import net.wuyuling.milkteamooc.model.entity.VideoBanner;
 import net.wuyuling.milkteamooc.service.VideoService;
 import net.wuyuling.milkteamooc.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
