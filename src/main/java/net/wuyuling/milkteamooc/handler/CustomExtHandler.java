@@ -1,19 +1,38 @@
 package net.wuyuling.milkteamooc.handler;
 
 import net.wuyuling.milkteamooc.utils.JsonData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * An Exception Handler
  */
 @RestControllerAdvice
 public class CustomExtHandler {
+
+    private final static Logger logger = LoggerFactory.getLogger(CustomExtHandler.class);
+
     // Handle all unwanted exceptions
     @ExceptionHandler(value = Exception.class)
-    JsonData handlerException(Exception e, HttpServletRequest request) {
-        return JsonData.buildError("Internal Server Corrupted", -2);
+    public JsonData handle(Exception e) {
+
+        logger.error("An exception occurs in system", e);
+
+        if (e instanceof MilkTeaException) {
+
+            MilkTeaException milkTeaException = (MilkTeaException) e;
+
+            return JsonData.buildError(milkTeaException.getCode(), milkTeaException.getMsg());
+
+        } else {
+
+            return JsonData.buildError(-2, "Internal Server Corrupted: Unknown Error");
+
+        }
+
+
     }
+
 }
