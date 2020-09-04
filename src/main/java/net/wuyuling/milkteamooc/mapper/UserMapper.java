@@ -1,42 +1,19 @@
 package net.wuyuling.milkteamooc.mapper;
 
 import net.wuyuling.milkteamooc.domain.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @Repository
-public class UserMapper {
-    // Mock Database Data in memory
-    private static Map<String, User> userMap = new HashMap<>();
+public interface UserMapper {
+    int save(User user);
 
-    static {
-        userMap.put("test", new User(1, "test", "123456"));
-        userMap.put("lindo", new User(2, "lindo", "654321"));
-        userMap.put("milktea", new User(3, "milktea", "helloworld"));
-    }
-
-    // Get and Validate User
-    public User login(String username, String pwd) {
-
-        User user = userMap.get(username);
-        // Does NOT contain the username
-        if (user == null) {
-            return null;
-        }
-        // Validate Password
-        if (user.getPwd().equals(pwd)) {
-            return user;
-        }
-
-        return null;
-    }
-
-    // Get User List
-    public List<User> listUser() {
-        return new ArrayList<>(userMap.values());
-    }
+    /**
+     * Find a user by phone number
+     *
+     * @param phone a specified phone number
+     * @return the corresponding user or NULL
+     * @remark Unused method
+     */
+    User findByPhone(@Param("phone") String phone);
 }

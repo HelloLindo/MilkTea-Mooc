@@ -1,34 +1,38 @@
 package net.wuyuling.milkteamooc.controller;
 
-import net.wuyuling.milkteamooc.domain.User;
 import net.wuyuling.milkteamooc.service.UserService;
 import net.wuyuling.milkteamooc.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * Controller of user service
  */
 
 @RestController
-@RequestMapping("/api/v1/pub/user")
+@RequestMapping("/api/v1/pri/user")
 public class UserController {
 
     @Autowired
     public UserService userService;
 
-    // Login Interface
-    @PostMapping("login")
-    public JsonData login(@RequestBody User user) {
-        // Validate User's account & password
-        String token = userService.login(user.getUsername(), user.getPwd());
+    /**
+     * Sign up a new user by Unique Phone Number
+     *
+     * @param userInfo the User's Information
+     * @return the result
+     */
+    @PostMapping("register")
+    public JsonData register(@RequestBody Map<String, String> userInfo) {
 
-        return token != null ? JsonData.buildSuccess(token) : JsonData.buildError("Wrong Account or Password");
-    }
+        int rows = userService.save(userInfo);
 
-    // List All Users
-    @GetMapping("list")
-    public JsonData listUser() {
-        return JsonData.buildSuccess(userService.listUser());
+        return rows == 1 ? JsonData.buildSuccess() : JsonData.buildError("Sign up failed, please retry");
+
     }
 }

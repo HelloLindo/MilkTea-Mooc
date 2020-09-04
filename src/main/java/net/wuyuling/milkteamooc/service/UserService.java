@@ -1,11 +1,13 @@
 package net.wuyuling.milkteamooc.service;
 
-import net.wuyuling.milkteamooc.domain.User;
-
-import java.util.List;
+import java.util.Map;
 
 public interface UserService {
-    String login(String username, String pwd);
-
-    List<User> listUser();
+    /**
+     * Save New User
+     *
+     * @param userInfo the map of user's information
+     * @return Saving Result
+     */
+    int save(Map<String, String> userInfo);
 }
