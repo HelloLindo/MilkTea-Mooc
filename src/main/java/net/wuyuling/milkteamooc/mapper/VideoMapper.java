@@ -1,30 +1,35 @@
 package net.wuyuling.milkteamooc.mapper;
 
 import net.wuyuling.milkteamooc.domain.Video;
+import net.wuyuling.milkteamooc.domain.VideoBanner;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
-public class VideoMapper {
+public interface VideoMapper {
 
-    // Mock Database Data in memory
-    private static Map<Integer, Video> videoMap = new HashMap<>();
+    /**
+     * List the Video List
+     *
+     * @return Video List
+     */
+    List<Video> listVideo();
 
-    static {
-        videoMap.put(1, new Video(1, "Java foundation course, jdk8~13 new features"));
-        videoMap.put(2, new Video(2, "SpringBoot2.X Zero to Industry"));
-        videoMap.put(3, new Video(3, "Micro service SpringCLoud"));
-        videoMap.put(4, new Video(4, "SpringBoot real WeChat pays Project"));
-        videoMap.put(5, new Video(5, "Interview topic - 300 hottest question"));
-    }
+    /**
+     * List the Carousel list
+     *
+     * @return Carousel List
+     */
+    List<VideoBanner> listVideoBanner();
 
-    public List<Video> listVideo() {
-
-        return new ArrayList<>(videoMap.values());
-    }
+    /**
+     * Query video details, including chapter and episode info
+     *
+     * @param videoId The specified Video ID
+     * @return Video Details
+     */
+    Video findDetailById(@Param("video_id") int videoId);
 
 }

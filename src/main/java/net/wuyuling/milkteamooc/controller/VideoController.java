@@ -2,6 +2,7 @@ package net.wuyuling.milkteamooc.controller;
 
 
 import net.wuyuling.milkteamooc.domain.Video;
+import net.wuyuling.milkteamooc.domain.VideoBanner;
 import net.wuyuling.milkteamooc.service.VideoService;
 import net.wuyuling.milkteamooc.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    /**
+     * List the Video List
+     *
+     * @return Video List
+     */
     @GetMapping("list")
     public JsonData list() {
         List<Video> list = videoService.listVideo();
@@ -50,5 +56,35 @@ public class VideoController {
         System.out.println(video.toString());
 
         return JsonData.buildSuccess(video);
+    }
+
+    /**
+     * List the Carousel List
+     *
+     * @return Carousel List
+     */
+    @GetMapping("list_banner")
+    public JsonData indexBanner() {
+
+        List<VideoBanner> bannerList = videoService.listBanner();
+
+        return JsonData.buildSuccess(bannerList);
+
+    }
+
+    /**
+     * Query video details, including chapter and episode info
+     *
+     * @param videoId The specified Video ID (required)
+     * @return Video Details
+     */
+    @GetMapping("find_detail_by_id")
+    public JsonData findDetailById(@RequestParam(value = "video_id") int videoId) {
+
+
+        Video video = videoService.findDetailById(videoId);
+
+        return JsonData.buildSuccess(video);
+
     }
 }
