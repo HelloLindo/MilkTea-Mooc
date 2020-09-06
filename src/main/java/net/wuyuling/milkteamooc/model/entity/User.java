@@ -1,5 +1,6 @@
 package net.wuyuling.milkteamooc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class User implements Serializable {
 
     private String phone;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT-8")
     private Date createTime;
 
     @Override

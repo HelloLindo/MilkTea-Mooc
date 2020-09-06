@@ -4,6 +4,8 @@ import net.wuyuling.milkteamooc.model.entity.VideoOrder;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface VideoOrderMapper {
     /**
@@ -24,4 +26,12 @@ public interface VideoOrderMapper {
      * @return Result of Saving
      */
     int saveOrder(VideoOrder videoOrder);
+
+    /**
+     * List All Order Records of a User
+     *
+     * @param userId the User ID
+     * @return Video Order List
+     */
+    List<VideoOrder> listOrderByUserId(@Param("user_id") Integer userId);
 }

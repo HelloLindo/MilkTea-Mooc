@@ -19,4 +19,13 @@
                 #{userId,jdbcType=INTEGER})
     </insert>
 
+    <select id="listOrderByUserId" resultType="VideoOrder">
+
+        SELECT *
+        FROM video_order
+        WHERE user_id = #{user_id}
+        ORDER BY create_time DESC
+
+    </select>
+
 </mapper>

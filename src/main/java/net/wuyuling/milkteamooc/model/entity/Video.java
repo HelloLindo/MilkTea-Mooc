@@ -1,5 +1,7 @@
 package net.wuyuling.milkteamooc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Video implements Serializable {
 
     private Integer price;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT-8")
     private Date createTime;
 
     private Double point;

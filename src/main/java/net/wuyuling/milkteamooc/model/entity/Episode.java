@@ -1,5 +1,7 @@
 package net.wuyuling.milkteamooc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,17 +15,15 @@ public class Episode implements Serializable {
 
     private Integer ordered;
 
-
     private String playUrl;
 
-
     private Integer chapterId;
-
 
     private Integer free;
 
     private Integer videoId;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT-8")
     private Date createTime;
 
     @Override

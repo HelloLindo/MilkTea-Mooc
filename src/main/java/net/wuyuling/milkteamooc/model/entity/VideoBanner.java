@@ -1,5 +1,7 @@
 package net.wuyuling.milkteamooc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,7 +12,8 @@ public class VideoBanner implements Serializable {
     private String url;
 
     private String img;
-
+    
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT-8")
     private Date createTime;
 
     private Integer weight;
