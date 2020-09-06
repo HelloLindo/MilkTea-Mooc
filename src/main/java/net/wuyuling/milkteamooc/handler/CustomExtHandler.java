@@ -3,6 +3,7 @@ package net.wuyuling.milkteamooc.handler;
 import net.wuyuling.milkteamooc.utils.JsonData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -26,10 +27,10 @@ public class CustomExtHandler {
 
             return JsonData.buildError(milkTeaException.getCode(), milkTeaException.getMsg());
 
+        } else if (e instanceof HttpRequestMethodNotSupportedException) {
+            return JsonData.buildError("Unsupported Request Method");
         } else {
-
             return JsonData.buildError(-2, "Internal Server Corrupted: Unknown Error");
-
         }
 
 
