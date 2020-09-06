@@ -1,5 +1,7 @@
 package net.wuyuling.milkteamooc.service;
 
+import net.wuyuling.milkteamooc.model.entity.User;
+
 import java.util.Map;
 
 public interface UserService {
@@ -19,4 +21,12 @@ public interface UserService {
      * @return Token if there is a valid user in database, otherwise null
      */
     String findByPhoneAndPwd(String phone, String pwd);
+
+    /**
+     * Retrieve User Info by User ID
+     *
+     * @param userId the User ID
+     * @return User Info
+     */
+    User findByUserId(Integer userId);
 }

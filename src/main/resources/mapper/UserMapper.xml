@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.wuyuling.milkteamooc.mapper.UserMapper">
 
-    <insert id="save">
+    <insert id="save" parameterType="User">
         INSERT INTO user (name, pwd, head_img, phone, create_time)
         values (#{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR},
                 #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
@@ -16,10 +16,16 @@
 
     <!--  No need to return the correct password  -->
     <select id="findByPhoneAndPwd" resultType="User">
-        select id, name, head_img, phone, create_time
-        from user
-        where phone = #{phone}
-          and pwd = #{pwd}
+        SELECT id, name, head_img, phone, create_time
+        FROM user
+        WHERE phone = #{phone}
+          AND pwd = #{pwd}
+    </select>
+
+    <select id="findByUserId" resultType="User">
+        SELECT id, name, head_img, phone, create_time
+        FROM user
+        WHERE id = #{user_id}
     </select>
 
 </mapper>

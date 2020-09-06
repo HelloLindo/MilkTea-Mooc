@@ -25,4 +25,12 @@ public interface UserMapper {
      * @return the User in database
      */
     User findByPhoneAndPwd(@Param("phone") String phone, @Param("pwd") String pwd);
+
+    /**
+     * Find User Info by User ID
+     *
+     * @param userId the User ID
+     * @return User Info
+     */
+    User findByUserId(@Param("user_id") Integer userId);
 }

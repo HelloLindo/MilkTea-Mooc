@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.wuyuling.milkteamooc.mapper.VideoOrderMapper">
+
+    <select id="findByUserIdAndVideoIdAndState" resultType="VideoOrder">
+        SELECT *
+        FROM video_order
+        WHERE user_id = #{user_id}
+          AND video_id = #{video_id}
+          AND state = #{state}
+    </select>
+
+    <insert id="saveOrder" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO `video_order` (`out_trade_no`, `state`, `create_time`, `total_fee`, `video_id`,
+                                   `video_title`, `video_img`, `user_id`)
+        VALUES (#{outTradeNo,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+                #{totalFee,jdbcType=INTEGER},
+                #{videoId,jdbcType=INTEGER}, #{videoTitle,jdbcType=VARCHAR}, #{videoImg,jdbcType=VARCHAR},
+                #{userId,jdbcType=INTEGER})
+    </insert>
+
+</mapper>

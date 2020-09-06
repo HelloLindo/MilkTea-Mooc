@@ -40,6 +40,11 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public User findByUserId(Integer userId) {
+        return userMapper.findByUserId(userId);
+    }
+
     /**
      * Parse from Map to User Object
      *

@@ -5,17 +5,25 @@
 
     <select id="listVideo" resultType="Video">
 
-        select *
-        from video
+        SELECT *
+        FROM video
 
     </select>
 
 
     <select id="listVideoBanner" resultType="VideoBanner">
 
-        select *
-        from video_banner
+        SELECT *
+        FROM video_banner
         order by weight
+
+    </select>
+
+    <select id="findById" resultType="Video">
+
+        SELECT *
+        FROM video
+        WHERE id = #{video_id}
 
     </select>
 
@@ -56,7 +64,7 @@
 
     <select id="findDetailById" resultMap="VideoDetailResultMap">
 
-        select v.id,
+        SELECT v.id,
                v.title,
                v.summary,
                v.cover_img,
@@ -75,7 +83,7 @@
                e.free,
                e.create_time as episode_create_time
 
-        from video v
+        FROM video v
 
                  left join chapter c on v.id = c.video_id
 

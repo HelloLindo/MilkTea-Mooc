@@ -25,6 +25,14 @@ public interface VideoMapper {
     List<VideoBanner> listVideoBanner();
 
     /**
+     * Query video details, without chapter and episode info
+     *
+     * @param videoId The specified Video ID
+     * @return Video Details without Chapter and Episode Info
+     */
+    Video findById(@Param("video_id") int videoId);
+
+    /**
      * Query video details, including chapter and episode info
      *
      * @param videoId The specified Video ID
