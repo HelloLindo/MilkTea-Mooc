@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.wuyuling.milkteamooc.mapper.PlayRecordMapper">
+
+
+    <insert id="saveRecord" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="PlayRecord">
+        INSERT INTO `play_record` (`user_id`, `video_id`, `current_num`, `episode_id`, `create_time`)
+        VALUES (#{play_record.userId}, #{play_record.videoId}, #{play_record.currentNum}, #{play_record.episodeId},
+                #{play_record.createTime});
+    </insert>
+
+</mapper>
