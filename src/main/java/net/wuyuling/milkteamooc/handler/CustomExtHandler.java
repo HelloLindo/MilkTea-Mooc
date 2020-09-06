@@ -19,7 +19,7 @@ public class CustomExtHandler {
     @ExceptionHandler(value = Exception.class)
     public JsonData handle(Exception e) {
 
-        logger.error("An exception occurs in system", e);
+        logger.error("[UNKNOWN ERROR] An exception occurs in system", e);
 
         if (e instanceof MilkTeaException) {
 

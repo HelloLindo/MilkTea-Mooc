@@ -75,12 +75,11 @@ public class VideoController {
     /**
      * Query video details, including chapter and episode info
      *
-     * @param videoId The specified Video ID (required)
+     * @param videoId The specified Video ID (required, send as a parameter)
      * @return Video Details
      */
     @GetMapping("find_detail_by_id")
     public JsonData findDetailById(@RequestParam(value = "video_id") int videoId) {
-
 
         Video video = videoService.findDetailById(videoId);
 

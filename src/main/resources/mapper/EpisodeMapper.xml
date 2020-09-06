@@ -1,6 +1,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="net.wuyuling.milkteamooc.mapper.EpisodeMapper">
 
+    <!--  The cache CANNOT be enabled when there is any Multi-table operation  -->
+    <!--  ONLY CAN be used in Seldom modified Table  -->
+    <cache eviction="LRU" flushInterval="1800000" readOnly="true" size="1024"/>
+
     <select id="findFirstEpisodeByVideoId" resultType="Episode">
         SELECT *
         FROM episode
