@@ -36,7 +36,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             if (StringUtils.isNotBlank(accesToken)) {
                 Claims claims = JWTUtils.checkJWT(accesToken);
                 if (claims == null) {
-                    sendJsonMessage(response, JsonData.buildError("Expired Token, please login again"));
+                    sendJsonMessage(response, JsonData.buildError("Invalid Token, please login again"));
                     return false;
                 }
 
@@ -54,7 +54,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         }
 
-        sendJsonMessage(response, JsonData.buildError("Expired Token, please login again"));
+        sendJsonMessage(response, JsonData.buildError("Invalid Token, please login again"));
 
         return false;
 
