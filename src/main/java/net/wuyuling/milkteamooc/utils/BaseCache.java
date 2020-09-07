@@ -11,11 +11,11 @@ public class BaseCache {
 
     private Cache<String, Object> tenMinuteCache = CacheBuilder.newBuilder()
             // Set the initial size
-            .initialCapacity(10)
+            .initialCapacity(30)
             // Set the MAX size
-            .maximumSize(100)
+            .maximumSize(1000)
             // Set the concurrent processes (operate the cache)
-            .concurrencyLevel(5)
+            .concurrencyLevel(10)
             // Expire Time
             .expireAfterWrite(15, TimeUnit.MINUTES)
             // statistic the cache data
@@ -27,9 +27,9 @@ public class BaseCache {
             // Set the initial size
             .initialCapacity(30)
             // Set the MAX size
-            .maximumSize(100)
+            .maximumSize(1000)
             // Set the concurrent processes (operate the cache)
-            .concurrencyLevel(5)
+            .concurrencyLevel(10)
             // Expire Time
             .expireAfterWrite(1, TimeUnit.HOURS)
             // statistic the cache data

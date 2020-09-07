@@ -27,6 +27,8 @@ public class VideoServiceImpl implements VideoService {
     @SuppressWarnings("unchecked")
     @Override
     public List<VideoBanner> listBanner() {
+        // Disable Guava Cache Module (ONLY FOR LOAD TEST MOCK)
+        // return videoMapper.listVideoBanner();
 
         try {
             // JDK 1.8 Lambda Syntax
