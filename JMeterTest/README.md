@@ -8,20 +8,26 @@
 #Load Test Example
 ***THE EXAMPLE ONLY TEST `/api/v1/pub/video/list_banner` INTERFACE***
 
-- **Test Machine**  
+###**Test Machine**  
 
 | *CPU* | *Memory* | *Disk* |
-| :-----: | :----: | :----: |
+| :----: | :----: | :----: |
 | Intel Xeon (Cascade Lake) Platinum 8269 <br /> 3.1 GHz/3.5 GHz | 16 GiB | Aliyun ESSD 40 GiB |
 
-- **Test Result without using Cache**  
+###**Test Result without using Cache**  
 
 ![jmeter_load_test_without_cache](./jmeter_load_test_without_cache.png)
 
-- **Test Result with Mybatis Second Level Cache**  
+###**Test Result with Mybatis Second Level Cache**  
 
 ![jmeter_load_test_with_mybatis_cache](./jmeter_load_test_with_mybatis_cache.png)
 
-- **Test Result with Guava Cache**  
+###**Test Result with Guava Cache**  
 
 ![jmeter_load_test_with_guava_cache](./jmeter_load_test_with_guava_cache.png)
+
+###**Summary**  
+
+| *No Cache* | *MyBatis Second Level Cache* | *Guava Cache* |
+| :----: | :----: | :----: |
+| 6304.24<br />Transactions/s | 14545.10<br />Transactions/s |  15479.08<br />Transactions/s |
