@@ -1,4 +1,5 @@
 language: java
+before_install:
+  - chmod +x mvnw
 install: mvn install
-jdk:
-  - oraclejdk14
+jdk: oraclejdk14
