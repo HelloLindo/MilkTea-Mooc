@@ -21,6 +21,10 @@ The full techniques are [SpringBoot 2.3](https://spring.io/projects/spring-boot/
     > | :----: | :----: | :----: |
     > | 6304.24<br />Transactions/s | 14545.10<br />Transactions/s |  15479.08<br />Transactions/s |
 
+## API Document  
+Check the `./ApiDoc` directory for the [API Document](./ApiDoc/README.md).  
+> *If you want to view the website version of API Document, please unzip the `./ApiDoc/MilkTeaMoocApiDoc.zip` and open the index.html file.*
+
 ## Requirements  
 **The following requirements are required in your machine for running Milk Tea Mooc Service:**
 
